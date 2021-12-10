@@ -52,4 +52,13 @@ npm install webpack webpack-cli --save-dev # locally install webpack
 ```bash
 npx webpack --config webpack.config.js
 ```
-> 配置文件比CLI使用更具灵活性。我们可以通过这种方式指定加载程序规则、插件、解析选项和许多其他增强功能。
+> 配置文件比CLI使用更具灵活性。我们可以通过这种方式指定加载程序规则、插件、解析选项和许多其他增强功能。  
+
+
+
+### NPM Scripts
+调整 `package.json`，使用 `scripts`
+```bash
+## 可以替换 npx webpack
+npm run bulid
+```
