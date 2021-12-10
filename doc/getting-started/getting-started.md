@@ -16,3 +16,21 @@ npm install webpack webpack-cli --save-dev # locally install webpack
 1. 脚本是否依赖于外部库不明显
 2. 如果缺少依赖项或包含在错误的顺序中，则应用程序将无法正常运行
 3. 如果包含依赖项但未使用，浏览器将被迫下载不必要的代码
+
+## create a Bundle
+1. 稍微调整目录结构，区分 __源代码（`webpack-demo/src`）__ 和 __分发代码（`webpack-demo/dist`）__
+   - `source code`：由我们编写的代码
+   - `distribution code`：构建输出
+
+2. 在 `webpack-demo/src/index.js` 中绑定 `lodash`，同时需要本地安装 `lodash`
+   ```bash
+   # locally insall lodash
+   npm install --save lodash
+   ```
+3. 修改 `webpack-demo/dist/index.html` 中 `<script>` 的 `src` 为 `main.js`
+   > 此时为手动创建 `index.html`，使用自动创建 `index.html`，需要清空 `dist/` 并生成里边所有的内容
+4. 运行 `npx webpack` 进行打包，npx 将会运行 `webpack` 二进制文件 `webpack-demo/node_modules/.bin/webpack` 把 `webpack-demo/src/index.js` 作为入口点， 生成 `webpack-demo/dist/main.js`，
+   ```bash
+   npx webpack
+   ```
+5. 此时使用浏览器打开 `webpack-demo/dist/index.html`，可以看到 `hello webpack`
